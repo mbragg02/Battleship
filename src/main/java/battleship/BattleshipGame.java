@@ -16,8 +16,8 @@ import java.util.Scanner;
 class BattleshipGame {
 
 	private Scanner scanner;
-	private boolean play_again;
-	private int grid_length;
+	private boolean playAgain;
+	private int gridLength;
 
 	public static void main(String[] args) {
 		new BattleshipGame().launch();
@@ -32,17 +32,17 @@ class BattleshipGame {
 		while(true) {
 			Ocean ocean = new Ocean();
 			ocean.placeAllShipsRandomly();
-			grid_length = ocean.getShipArray().length;
+			gridLength = ocean.getShipArray().length;
 			
 			System.out.println("Welcome to Battleships\n");
 			
-			game_loop(ocean);
+			gameLoop(ocean);
 			
 			System.out.println(ocean.toString());
 			System.out.println("Final score: " + ocean.getShotsFired() + " shots \n");
 
 			playAgain();
-			if (!play_again) {
+			if (!playAgain) {
 				break;
 			}
 		}
@@ -54,19 +54,21 @@ class BattleshipGame {
 	 * Game loop - Whilst there are still ships not sunk.
 	 * @param ocean Ocean
 	 */
-	private void game_loop(Ocean ocean) {
+	private void gameLoop(Ocean ocean) {
 		int[] coordinates;
 		while (!ocean.isGameOver()) {
 			System.out.println(ocean.toString());
 			do {
 				try {
-					coordinates = get_user_coordinates();
+					coordinates = getUserCoordinates();
 					break;
 				} catch (IllegalArgumentException e) {
 					System.out.println(e.getMessage());
 				} 
 			} while(true);
-			ocean.shootAt(coordinates[0], coordinates[1]);
+
+            ocean.shootAt(coordinates[0], coordinates[1]);
+
 		}
 	}
 
@@ -75,25 +77,25 @@ class BattleshipGame {
 	 * @return int[] Array containing the row and column values.
 	 * @throws IllegalArgumentException if the entered coordinates are: Not digits, out of bounds of the game grid or not a valid format.
 	 */
-	private int[] get_user_coordinates() throws IllegalArgumentException {
+	private int[] getUserCoordinates() throws IllegalArgumentException {
 
 		int[] coordinates = new int[2];
 
 			System.out.println("Enter a row and column number to shoot at (e.g 3,5): ");
-			String[] user_input = scanner.nextLine().split(",");
-			if (user_input.length != 2) {
+			String[] userInput = scanner.nextLine().split(",");
+			if (userInput.length != 2) {
 				throw new IllegalArgumentException("Invalid coordinates. Please try again");
 			}
 			
 			try {
-				coordinates[0] = Integer.parseInt(user_input[0].trim());
-				coordinates[1] = Integer.parseInt(user_input[1].trim());
+				coordinates[0] = Integer.parseInt(userInput[0].trim());
+				coordinates[1] = Integer.parseInt(userInput[1].trim());
 			} catch(NumberFormatException e) {
 				throw new IllegalArgumentException("Coordinates must be digits. Please try again");
 			}
 
-			if (coordinates[0] > grid_length - 1 || coordinates[1] > grid_length - 1) {
-				throw new IllegalArgumentException("Coordinates must be in the range 0 and " + (grid_length -1) + " Please try again");
+			if (coordinates[0] > gridLength - 1 || coordinates[1] > gridLength - 1) {
+				throw new IllegalArgumentException("Coordinates must be in the range 0 and " + (gridLength -1) + " Please try again");
 			}
 
 		return coordinates;
@@ -108,10 +110,10 @@ class BattleshipGame {
 			String choice = scanner.nextLine();
 
 			if(choice.equalsIgnoreCase("y")) {
-				play_again = true;
+				playAgain = true;
 				break;
 			} else if (choice.equalsIgnoreCase("n")) {
-				play_again = false;
+				playAgain = false;
 				break;
 			} else {
 				System.out.println("Not a valid option. Please try again.");

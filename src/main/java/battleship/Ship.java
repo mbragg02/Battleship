@@ -6,11 +6,11 @@ package battleship;
  */
 public abstract class Ship {
 
-	private int bow_column;
-	private int bow_row;
+	private int bowColumn;
+	private int bowRow;
 	public int length;
 	public boolean[] hit = {false, false, false, false, false};
-	private boolean is_horizontal;
+	private boolean isHorizontal;
 
 	/**
 	 * This method exists only to be overridden.
@@ -22,42 +22,42 @@ public abstract class Ship {
 	 * @return int bow Row
 	 */
     public int getBowRow() {
-		return bow_row;
+		return bowRow;
 	}
 
 	/**
 	 * @return int bow Column
 	 */
     public int getBowColumn() {
-		return bow_column;
+		return bowColumn;
 	}
 	
 	/**
 	 * @return boolean Horizontal
 	 */
     public boolean isHorizontal() {
-		return is_horizontal;
+		return isHorizontal;
 	}
 
 	/**
 	 * @param row int
 	 */
     public void setBowRow(int row) {
-		bow_row = row;
+		bowRow = row;
 	}
 
 	/**
 	 * @param column int
 	 */
     public void setBowColumn(int column) {
-		bow_column = column;
+		bowColumn = column;
 	}
 	
 	/**
 	 * @param horizontal boolean
 	 */
     public void setHorizontal(boolean horizontal) {
-		is_horizontal = horizontal;
+		isHorizontal = horizontal;
 	}
 	
 	/**
@@ -82,7 +82,7 @@ public abstract class Ship {
 			return false;
 		}
 
-		if (this.ships_are_adjacent(row, column, grid)) {
+		if (this.shipsAreAdjacent(row, column, grid)) {
 			return false;
 		}
 
@@ -94,7 +94,7 @@ public abstract class Ship {
 				if (!(grid[row][column + i] instanceof EmptySea)) {
 					return false;
 				}
-				if (this.ships_are_adjacent(row, column + i, grid)) {
+				if (this.shipsAreAdjacent(row, column + i, grid)) {
 					return false;
 				}
 			}
@@ -107,7 +107,7 @@ public abstract class Ship {
 				if (!(grid[row+i][column] instanceof EmptySea)) {
 					return false;
 				}
-				if (this.ships_are_adjacent(row + i, column, grid)) {
+				if (this.shipsAreAdjacent(row + i, column, grid)) {
 					return false;
 				}
 			}
@@ -123,25 +123,23 @@ public abstract class Ship {
 	 * @param grid Ship[][] The game grid.
 	 * @return true if there are ships adjacent to the given ship. False otherwise
 	 */
-	private boolean ships_are_adjacent(int row, int column, Ship[][] grid) {
+	private boolean shipsAreAdjacent(int row, int column, Ship[][] grid) {
 		int[] increments = {-1, 0, 1};
 
-		for (int modified_row = 0; modified_row < increments.length; modified_row++) {
-			for (int modified_column = 0; modified_column < increments.length; modified_column++) {
+        for (int incrementRow : increments) {
+            for (int incrementColumn : increments) {
 
-				int row_test = row + increments[modified_row];
-				int col_test = column + increments[modified_column];
-				try {
-					if (!(grid[row_test][col_test] instanceof EmptySea)) {
-						return true;
-					}
-				}
-				catch (ArrayIndexOutOfBoundsException e) {
-					// Its Ok if ship is positioned on the edge of the grid, so continue
-					continue;
-				}
-			}
-		}
+                int rowToTest = row + incrementRow;
+                int columnToTest = column + incrementColumn;
+                try {
+                    if (!(grid[rowToTest][columnToTest] instanceof EmptySea)) {
+                        return true;
+                    }
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    // Its Ok if ship is positioned on the edge of the grid, so continue
+                }
+            }
+        }
 
 		return false;
 	}
@@ -180,24 +178,24 @@ public abstract class Ship {
 	 * @return true if hit. false otherwise.
 	 */
     public boolean shootAt(int row, int column) {
-		if (this.is_horizontal) {
-			if (this.bow_row != row) {
+		if (this.isHorizontal) {
+			if (this.bowRow != row) {
 				return false;
 			}
 			for (int i=0; i < this.length; i++) {
-				if ((this.bow_column + i) == column) {
-					this.register_hit(i);
+				if ((this.bowColumn + i) == column) {
+					this.registerHit(i);
 					return true;
 				}
 			}
 		}
 		else {
-			if (this.bow_column != column) {
+			if (this.bowColumn != column) {
 				return false;
 			}
 			for (int i=0; i < this.length; i++) {
-				if ((this.bow_row + i) == row) {
-					this.register_hit(i);
+				if ((this.bowRow + i) == row) {
+					this.registerHit(i);
 					return true;
 				}
 			}
@@ -210,7 +208,7 @@ public abstract class Ship {
 	 * Record the hit in the hit array of the ship.
 	 * @param index int
 	 */
-	private void register_hit(int index) {
+	private void registerHit(int index) {
 		this.hit[index] = true;
 
 		if (this.isSunk()) {

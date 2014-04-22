@@ -2,17 +2,17 @@ package battleship;
 
 public class ShipFactory {
 	
-	private static ShipFactory ship_factory;
+	private static ShipFactory shipFactory;
 	
 	private ShipFactory() {
 		// Empty private constructor;
 	}
 	
 	public static ShipFactory getInstance() {
-		if (ship_factory == null) {
-			ship_factory = new ShipFactory();
+		if (shipFactory == null) {
+			shipFactory = new ShipFactory();
 		}
-		return ship_factory;
+		return shipFactory;
 	}
 	
 	public Ship getAircraftCarrier() {
