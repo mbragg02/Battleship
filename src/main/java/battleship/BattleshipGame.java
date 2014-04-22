@@ -62,14 +62,14 @@ class BattleshipGame {
             do {
                 try {
                     coordinates = getUserCoordinates();
+                    ocean.shootAt(coordinates[0], coordinates[1]);
                     break;
-                } catch (IllegalArgumentException | NoSuchElementException e) {
+                } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
+                } catch (NoSuchElementException e) {
+                    break;
                 }
             } while (true);
-
-            ocean.shootAt(coordinates[0], coordinates[1]);
-
         }
     }
 
