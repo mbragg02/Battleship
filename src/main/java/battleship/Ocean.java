@@ -25,6 +25,7 @@ class Ocean {
     private static final int DESTROY_NO  = 2;
     private static final int PATROL_NO   = 4;
     private final ShipFactory shipFactory;
+    private int totalShips;
 
     /**
      * Creates an empty ocean (fills the ships array with EmptySeas).
@@ -39,6 +40,7 @@ class Ocean {
         this.shotsFired = 0;
         this.hitsRecorded = 0;
         this.shipsSunk = 0;
+        totalShips = 0;
 
         initializeShipArray();
         buildShips();
@@ -64,22 +66,25 @@ class Ocean {
     private void buildShips() {
         ships = new ArrayList<>();
 
-
-
         for (int i = 0; i < AIRCRAFT_NO; i++) {
             ships.add(shipFactory.getAircraftCarrier());
+            totalShips++;
         }
         for (int i = 0; i < BATTLE_NO; i++) {
             ships.add(shipFactory.getBattleShip());
+            totalShips++;
         }
         for (int i = 0; i < SUB_NO; i++) {
             ships.add(shipFactory.getSubmarine());
+            totalShips++;
         }
         for (int i = 0; i < DESTROY_NO; i++) {
             ships.add(shipFactory.getDestroyer());
+            totalShips++;
         }
         for (int i = 0; i < PATROL_NO; i++) {
             ships.add(shipFactory.getPatrolBoat());
+            totalShips++;
         }
     }
 
@@ -105,8 +110,6 @@ class Ocean {
             valid_position = false;
         }
     }
-
-
 
 
     /**
@@ -186,7 +189,7 @@ class Ocean {
      * @return true if all the ships have been sunk, otherwise false.
      */
     public boolean isGameOver() {
-        return (this.shipsSunk == 10);
+        return (this.shipsSunk == totalShips);
     }
 
     /**
@@ -202,6 +205,7 @@ class Ocean {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
+
         int rowCount = 0;
         int columnCount;
         String newLine = "\n";
@@ -209,12 +213,14 @@ class Ocean {
 
         // Write board column headers
         result.append("!");
+
         for (columnCount = 0; columnCount < gameBoard.length; columnCount++) {
             result.append(blank).append(columnCount);
         }
         result.append(newLine);
 
         for (Ship[] row : gameBoard) {
+
             result.append(rowCount);
             columnCount = 0;
             for (Ship column : row) {
