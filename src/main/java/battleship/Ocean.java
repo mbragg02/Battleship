@@ -18,7 +18,7 @@ public class Ocean {
     private int hitsRecorded;
     private int shipsSunk;
 
-    private static final int GRID_SIZE = 10;
+    public static final int GRID_SIZE = 10;
     private static final int AIRCRAFT_NO = 1;
     private static final int BATTLE_NO   = 2;
     private static final int SUB_NO 	 = 2;
@@ -50,7 +50,7 @@ public class Ocean {
     private void initializeShipArray() {
 
         for (int row= 0; row < this.gameBoard.length; row++) {
-            for (int col=  0; col < this.gameBoard[row].length; col++) {
+            for (int col= 0; col < this.gameBoard[row].length; col++) {
                 this.gameBoard[row][col] = shipFactory.getEmptySea();
                 this.locationsFiredUpon[row][col] = false;
             }
@@ -94,8 +94,8 @@ public class Ocean {
 
         for (Ship ship : ships) {
             while (!valid_position) {
-                row = random.nextInt(10);
-                column = random.nextInt(10);
+                row = random.nextInt(GRID_SIZE);
+                column = random.nextInt(GRID_SIZE);
                 horizontal = random.nextBoolean();
                 valid_position = ship.okToPlaceShipAt(row, column, horizontal, this);
             }
