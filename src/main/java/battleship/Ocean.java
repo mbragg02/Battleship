@@ -8,10 +8,10 @@ import java.util.Random;
  * This contains a 10x10 grid of Ships which represents the "ocean", and some methods to manipulate it.
  * @author mbragg
  */
-public class Ocean {
+class Ocean {
 
-    private Ship[][] gameBoard;
-    private boolean[][] locationsFiredUpon;
+    private final Ship[][] gameBoard;
+    private final boolean[][] locationsFiredUpon;
 
     private List<Ship> ships;
     private int shotsFired;
@@ -63,6 +63,8 @@ public class Ocean {
      */
     private void buildShips() {
         ships = new ArrayList<>();
+
+
 
         for (int i = 0; i < AIRCRAFT_NO; i++) {
             ships.add(shipFactory.getAircraftCarrier());

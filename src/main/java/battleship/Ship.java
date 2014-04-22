@@ -9,7 +9,7 @@ public abstract class Ship {
 	private int bowColumn;
 	private int bowRow;
 	public int length;
-	public boolean[] hit = {false, false, false, false, false};
+	public final boolean[] hit = {false, false, false, false, false};
 	private boolean isHorizontal;
 
 	/**

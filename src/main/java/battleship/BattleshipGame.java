@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 class BattleshipGame {
 
-    private Scanner scanner;
+    private final Scanner scanner;
     private boolean playAgain;
     private int gridLength;
 
@@ -63,7 +63,7 @@ class BattleshipGame {
                 try {
                     coordinates = getUserCoordinates();
                     break;
-                } catch (IllegalArgumentException e) {
+                } catch (IllegalArgumentException | NoSuchElementException e) {
                     System.out.println(e.getMessage());
                 }
             } while (true);
@@ -79,17 +79,12 @@ class BattleshipGame {
      * @return int[] Array containing the row and column values.
      * @throws IllegalArgumentException if the entered coordinates are: Not digits, out of bounds of the game grid or not a valid format.
      */
-    private int[] getUserCoordinates() throws IllegalArgumentException {
+    private int[] getUserCoordinates() throws IllegalArgumentException, NoSuchElementException {
 
         int[] coordinates = new int[2];
 
         System.out.println("Enter a row and column number to shoot at (e.g 3,5): ");
-        String[] userInput = new String[0];
-        try {
-            userInput = scanner.nextLine().split(",");
-        } catch (NoSuchElementException e) {
-            System.exit(0);
-        }
+        String[] userInput = scanner.nextLine().split(",");
 
         if (userInput.length != 2) {
             throw new IllegalArgumentException("Invalid coordinates. Please try again");

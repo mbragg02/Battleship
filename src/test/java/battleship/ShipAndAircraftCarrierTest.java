@@ -8,22 +8,15 @@ import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class AircraftCarrierTest {
+public class ShipAndAircraftCarrierTest {
 	
 	private AircraftCarrier aircraft_carrier;
 
     private Ocean ocean;
-//    @Mock
-//    private Ship[][] grid;
-//    @Mock
-//    private EmptySea emptySea;
-//    @Mock
-//    private Battleship battleShip;
 
 	@Before
 	public void setUp() throws Exception {
         ocean = new Ocean();
-
 
 		aircraft_carrier = new AircraftCarrier();
 

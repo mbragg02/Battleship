@@ -3,7 +3,7 @@ package battleship;
 /*
  * describes a ship with length 4.
  */
-public class Battleship extends Ship {
+class Battleship extends Ship {
 		
 	public Battleship() {
 		this.length = 4;
