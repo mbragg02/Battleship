@@ -17,7 +17,6 @@ import java.util.Scanner;
 class BattleshipGameController {
 
     private final Scanner scanner;
-    private boolean playAgain;
     private int gridLength;
     private BattleshipGameView view;
 
@@ -43,8 +42,8 @@ class BattleshipGameController {
             view.printOcean(ocean);
             view.finalScore(ocean.getShotsFired());
 
-            playAgain();
-            if (!playAgain) {
+
+            if (!playAgain()) {
                 break;
             }
         }
@@ -110,7 +109,8 @@ class BattleshipGameController {
     /**
      * Asks the user wants to play again & sets play again variable.
      */
-    private void playAgain() {
+    private boolean playAgain() {
+        boolean playAgain;
         while (true) {
             view.playAgain(view.userAffirmative(), view.userNegative());
             String choice = scanner.nextLine();
@@ -125,6 +125,7 @@ class BattleshipGameController {
                 view.invalidOption();
             }
         }
+        return playAgain;
     }
 
 }
