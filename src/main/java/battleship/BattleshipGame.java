@@ -41,8 +41,7 @@ class BattleshipGame {
             gameLoop(ocean);
 
             System.out.println(ocean);
-            System.out.println("Final score: " + ocean.getShotsFired() + " shots \n");
-//            view.finalscore(ocean.getShotsFired());
+            view.finalScore(ocean.getShotsFired());
 
             playAgain();
             if (!playAgain) {
