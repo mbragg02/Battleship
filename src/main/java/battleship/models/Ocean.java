@@ -60,7 +60,7 @@ public class Ocean {
      */
     private void initializeShipArray() {
 
-        for (int row= 0; row < this.gameBoard.length; row++) {
+        for (int row= 0; row <   this.gameBoard.length; row++) {
             for (int col= 0; col < this.gameBoard[row].length; col++) {
                 this.gameBoard[row][col] = shipFactory.getEmptySea();
                 this.locationsFiredUpon[row][col] = false;

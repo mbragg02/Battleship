@@ -3,9 +3,13 @@ package battleship.views;
 import battleship.models.Ocean;
 
 public class BattleshipGameViewImpl implements BattleshipGameView {
+
+    private String boat = "\n" + "       _~" + "\n" +"    _~ )_)_~"+ "\n" + "    )_))_))_)" + "\n" + "    _!__!__!_" + "\n" + "    " + "\\" + "______t/" + "\n" + "  ~~~~~~~~~~~~~" + "\n";
+
+
     @Override
     public void welcomeMessage() {
-        System.out.println("Welcome to Battleships\n");
+        System.out.println("Welcome to Battleships\n" + boat + "\n");
     }
 
     @Override
@@ -20,7 +24,7 @@ public class BattleshipGameViewImpl implements BattleshipGameView {
 
     @Override
     public void exitMessage() {
-        System.out.println("Goodbye, thanks for playing!");
+        System.out.println(boat + "\nGoodbye, thanks for playing!");
     }
 
     @Override
