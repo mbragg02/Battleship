@@ -35,7 +35,6 @@ class BattleshipGameController {
         while (true) {
 
             ocean.initialise();
-
             ocean.placeAllShipsRandomly();
             gridLength = ocean.getShipArray().length;
 
@@ -45,8 +44,6 @@ class BattleshipGameController {
 
             view.printOcean(ocean);
             view.finalScore(ocean.getShotsFired());
-
-
 
             if (!playAgain()) {
                 break;
