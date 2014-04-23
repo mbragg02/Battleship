@@ -36,7 +36,7 @@ class BattleshipGameController {
             ocean.placeAllShipsRandomly();
             gridLength = ocean.getShipArray().length;
 
-            view.welcomeScreen();
+            view.welcomeMessage();
 
             gameLoop(ocean);
 
@@ -48,7 +48,7 @@ class BattleshipGameController {
                 break;
             }
         }
-        view.goodBye();
+        view.exitMessage();
         scanner.close();
     }
 

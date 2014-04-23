@@ -1,7 +1,7 @@
 package battleship;
 
 public class BattleshipGameView {
-    public void welcomeScreen() {
+    public void welcomeMessage() {
         System.out.println("Welcome to Battleships\n");
     }
 
@@ -13,7 +13,7 @@ public class BattleshipGameView {
         System.out.println(ocean);
     }
 
-    public void goodBye() {
+    public void exitMessage() {
         System.out.println("Goodbye, thanks for playing!");
     }
 }
