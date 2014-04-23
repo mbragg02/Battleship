@@ -28,8 +28,10 @@ public interface BattleshipGameView {
 
     /**
      * displays a message asking if a user would like to play again
+     * @param affirmative userAffirmative() string
+     * @param negative userNegative() string
      */
-    void playAgain();
+    void playAgain(String affirmative, String negative);
 
     /**
      * displayed when a user enters an invalid option when asked if they want to play again
@@ -59,4 +61,16 @@ public interface BattleshipGameView {
      * @return invalidShotRange message
      */
     String invalidShotRange(int gridLength);
+
+    /**
+     * the string the user enters to confirm an action
+     * @return affirmative string
+     */
+    String userAffirmative();
+
+    /**
+     * the string the user enters to reject an action
+     * @return negative string
+     */
+    String userNegative();
 }

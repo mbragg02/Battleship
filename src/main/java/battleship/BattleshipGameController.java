@@ -112,13 +112,13 @@ class BattleshipGameController {
      */
     private void playAgain() {
         while (true) {
-            view.playAgain();
+            view.playAgain(view.userAffirmative(), view.userNegative());
             String choice = scanner.nextLine();
 
-            if (choice.equalsIgnoreCase("y")) {
+            if (choice.equalsIgnoreCase(view.userAffirmative())) {
                 playAgain = true;
                 break;
-            } else if (choice.equalsIgnoreCase("n")) {
+            } else if (choice.equalsIgnoreCase(view.userNegative())) {
                 playAgain = false;
                 break;
             } else {

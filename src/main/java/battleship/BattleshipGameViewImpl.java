@@ -22,8 +22,8 @@ public class BattleshipGameViewImpl implements BattleshipGameView {
     }
 
     @Override
-    public void playAgain() {
-        System.out.print("Would you like to play again? y or n: ");
+    public void playAgain(String affirmative, String negative) {
+        System.out.print("Would you like to play again? enter '" + affirmative + "' or '" + negative + "': ");
     }
 
     @Override
@@ -49,5 +49,15 @@ public class BattleshipGameViewImpl implements BattleshipGameView {
     @Override
     public String invalidShotRange(int gridLength) {
         return "Coordinates must be in the range 0 and " + gridLength + " Please try again";
+    }
+
+    @Override
+    public String userAffirmative() {
+        return "y";
+    }
+
+    @Override
+    public String userNegative() {
+        return "n";
     }
 }
