@@ -1,6 +1,11 @@
 package battleship;
 
 
+import battleship.controllers.BattleshipGameController;
+import battleship.models.Ocean;
+import battleship.views.BattleshipGameView;
+import battleship.views.BattleshipGameViewImpl;
+
 /**
  * OODP 2014. Assignment Three: Battleship Game.
  * Main method - game launcher.

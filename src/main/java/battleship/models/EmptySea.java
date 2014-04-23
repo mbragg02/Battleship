@@ -1,4 +1,4 @@
-package battleship;
+package battleship.models;
 
 public class EmptySea extends Ship {
 

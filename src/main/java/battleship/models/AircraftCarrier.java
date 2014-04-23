@@ -1,9 +1,9 @@
-package battleship;
+package battleship.models;
 
 /*
  * describes a ship with length 5.
  */
-class AircraftCarrier extends Ship {
+public class AircraftCarrier extends Ship {
 		
 	public AircraftCarrier() {
 		this.length = 5;

@@ -1,4 +1,4 @@
-package battleship;
+package battleship.models;
 
 /**
  * This describes characteristics common to all the ships.
@@ -16,7 +16,7 @@ public abstract class Ship {
 	 * This method exists only to be overridden.
 	 * @return the length of this particular ship.
 	 */
-	abstract int getLength();
+	public abstract int getLength();
 	
 	/**
 	 * @return int bow Row
@@ -63,7 +63,7 @@ public abstract class Ship {
 	/**
 	 * @return the type of this ship.
 	 */
-	abstract String getShipType();
+	public abstract String getShipType();
 
 	/**
 	 * The ship must not overlap another ship, or touch another ship (vertically, horizontally, or diagonally), 
@@ -75,7 +75,7 @@ public abstract class Ship {
 	 * @return returns true if it is okay to put a ship of this length with its bow at this location, 
 	 * with the given orientation, and returns false otherwise.
 	 */
-	boolean okToPlaceShipAt(int row, int column, boolean horizontal, Ocean ocean) {
+	public boolean okToPlaceShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 		Ship[][] grid = ocean.getShipArray();
 
 		if (!(grid[row][column] instanceof EmptySea)) {
@@ -151,7 +151,7 @@ public abstract class Ship {
 	 * @param horizontal boolean
 	 * @param ocean Ocean
 	 */
-	void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
+	public void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 		this.setBowColumn(column);
 		this.setBowRow(row);
 		this.setHorizontal(horizontal);

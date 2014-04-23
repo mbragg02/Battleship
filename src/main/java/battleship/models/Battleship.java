@@ -1,9 +1,9 @@
-package battleship;
+package battleship.models;
 
 /*
  * describes a ship with length 4.
  */
-class Battleship extends Ship {
+public class Battleship extends Ship {
 		
 	public Battleship() {
 		this.length = 4;

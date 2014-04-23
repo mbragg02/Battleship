@@ -1,9 +1,12 @@
 package battleship;
 
+import battleship.models.AircraftCarrier;
+import battleship.models.Ocean;
+import battleship.models.Ship;
 import org.junit.Before;
 import org.junit.Test;
 
-import static battleship.Ocean.GRID_SIZE;
+import static battleship.models.Ocean.GRID_SIZE;
 import static org.junit.Assert.*;
 
 public class OceanTest {

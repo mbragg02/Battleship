@@ -1,4 +1,6 @@
-package battleship;
+package battleship.views;
+
+import battleship.models.Ocean;
 
 public class BattleshipGameViewImpl implements BattleshipGameView {
     @Override

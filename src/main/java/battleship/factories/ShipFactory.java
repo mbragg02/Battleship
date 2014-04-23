@@ -1,4 +1,6 @@
-package battleship;
+package battleship.factories;
+
+import battleship.models.*;
 
 public class ShipFactory {
 	

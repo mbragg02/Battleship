@@ -1,4 +1,6 @@
-package battleship;
+package battleship.models;
+
+import battleship.factories.ShipFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +10,7 @@ import java.util.Random;
  * This contains a 10x10 grid of Ships which represents the "ocean", and some methods to manipulate it.
  * @author mbragg
  */
-class Ocean {
+public class Ocean {
 
     private final Ship[][] gameBoard;
     private final boolean[][] locationsFiredUpon;
@@ -85,7 +87,7 @@ class Ocean {
      * Place all the ships randomly on the(initially empty) ocean.
      * Place larger ships before smaller ones, or you may end up with no legal place to put a large ship.
      */
-    void placeAllShipsRandomly() {
+    public void placeAllShipsRandomly() {
         boolean valid_position = false;
         int row = 0;
         int column = 0;
@@ -111,7 +113,7 @@ class Ocean {
      * @param column int
      * @return true if the given location contains a ship, false if it does not.
      */
-    boolean isOccupied(int row, int column) {
+    public boolean isOccupied(int row, int column) {
         return !(this.gameBoard[row][column] instanceof EmptySea);
     }
 
@@ -124,7 +126,7 @@ class Ocean {
      * @param column int
      * @return true if the given location contains a real ship, still afloat, (not an EmptySea), false if it does not.
      */
-    boolean shootAt(int row, int column) {
+    public boolean shootAt(int row, int column) {
         this.shotsFired++;
         this.locationsFiredUpon[row][column] = true;
 
