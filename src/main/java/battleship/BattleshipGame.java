@@ -19,9 +19,11 @@ class BattleshipGame {
     private final Scanner scanner;
     private boolean playAgain;
     private int gridLength;
+    private BattleshipGameView view;
 
-    public BattleshipGame() {
+    public BattleshipGame(BattleshipGameView battleshipGameView) {
         this.scanner = new Scanner(System.in);
+        this.view = battleshipGameView;
     }
 
     /**
@@ -34,12 +36,13 @@ class BattleshipGame {
             ocean.placeAllShipsRandomly();
             gridLength = ocean.getShipArray().length;
 
-            System.out.println("Welcome to Battleships\n");
+            view.welcomeScreen();
 
             gameLoop(ocean);
 
             System.out.println(ocean);
             System.out.println("Final score: " + ocean.getShotsFired() + " shots \n");
+//            view.finalscore(ocean.getShotsFired());
 
             playAgain();
             if (!playAgain) {
