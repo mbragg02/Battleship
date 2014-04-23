@@ -16,6 +16,7 @@ public class OceanTest {
     @Before
     public void setUp() throws Exception {
         this.ocean = new Ocean();
+        ocean.initialise();
     }
 
     @Test

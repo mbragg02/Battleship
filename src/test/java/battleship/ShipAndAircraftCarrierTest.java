@@ -21,6 +21,7 @@ public class ShipAndAircraftCarrierTest {
 	@Before
 	public void setUp() throws Exception {
         ocean = new Ocean();
+        ocean.initialise();
 
 		aircraft_carrier = new AircraftCarrier();
 
