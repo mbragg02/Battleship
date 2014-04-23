@@ -8,4 +8,8 @@ public class BattleshipGameView {
     public void finalScore(int shotsFired) {
         System.out.println("Final score: " + shotsFired + " shots \n");
     }
+
+    public void printOcean(Ocean ocean) {
+        System.out.println(ocean);
+    }
 }

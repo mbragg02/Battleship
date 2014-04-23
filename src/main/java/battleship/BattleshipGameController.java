@@ -14,14 +14,14 @@ import java.util.Scanner;
  *
  * @author Michael Bragg
  */
-class BattleshipGame {
+class BattleshipGameController {
 
     private final Scanner scanner;
     private boolean playAgain;
     private int gridLength;
     private BattleshipGameView view;
 
-    public BattleshipGame(BattleshipGameView battleshipGameView) {
+    public BattleshipGameController(BattleshipGameView battleshipGameView) {
         this.scanner = new Scanner(System.in);
         this.view = battleshipGameView;
     }
@@ -40,7 +40,7 @@ class BattleshipGame {
 
             gameLoop(ocean);
 
-            System.out.println(ocean);
+            view.printOcean(ocean);
             view.finalScore(ocean.getShotsFired());
 
             playAgain();

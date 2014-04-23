@@ -9,7 +9,7 @@ public class BattleShipGameLauncher {
 
     public static void main(String[] args) {
         BattleshipGameView view = new BattleshipGameView();
-        new BattleshipGame(view).launch();
+        new BattleshipGameController(view).launch();
     }
 
 }
