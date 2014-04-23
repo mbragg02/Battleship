@@ -74,5 +74,9 @@ public interface BattleshipGameView {
      */
     String userNegative();
 
+    /**
+     * Prints the error message returned from the exceptions built into the shot input system
+     * @param e the exception with a contained message
+     */
     void printErrorMessage(IllegalArgumentException e);
 }
