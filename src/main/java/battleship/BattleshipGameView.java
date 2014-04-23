@@ -73,4 +73,6 @@ public interface BattleshipGameView {
      * @return negative string
      */
     String userNegative();
+
+    void printErrorMessage(IllegalArgumentException e);
 }
