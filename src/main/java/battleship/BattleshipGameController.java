@@ -111,7 +111,7 @@ class BattleshipGameController {
      */
     private void playAgain() {
         while (true) {
-            System.out.print("Would you like to play again? y or n: ");
+            view.playAgain();
             String choice = scanner.nextLine();
 
             if (choice.equalsIgnoreCase("y")) {

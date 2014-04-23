@@ -16,4 +16,8 @@ public class BattleshipGameView {
     public void exitMessage() {
         System.out.println("Goodbye, thanks for playing!");
     }
+
+    public void playAgain() {
+        System.out.print("Would you like to play again? y or n: ");
+    }
 }
