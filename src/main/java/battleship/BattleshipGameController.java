@@ -17,7 +17,6 @@ import java.util.Scanner;
 class BattleshipGameController {
 
     private final Scanner scanner;
-    private int gridLength;
     private BattleshipGameView view;
     private Ocean ocean;
 
@@ -32,21 +31,14 @@ class BattleshipGameController {
      */
     void launch() {
 
+        view.welcomeMessage();
+
         while (true) {
 
             ocean.initialise();
-
             ocean.placeAllShipsRandomly();
-            gridLength = ocean.getShipArray().length;
-
-            view.welcomeMessage();
 
             gameLoop(ocean);
-
-            view.printOcean(ocean);
-            view.finalScore(ocean.getShotsFired());
-
-
 
             if (!playAgain()) {
                 break;
@@ -77,6 +69,8 @@ class BattleshipGameController {
                 }
             } while (true);
         }
+        view.printOcean(ocean);
+        view.finalScore(ocean.getShotsFired());
     }
 
     /**
@@ -104,8 +98,8 @@ class BattleshipGameController {
             throw new IllegalArgumentException(view.invalidCharacters());
         }
 
-        if (coordinates[0] > gridLength - 1 || coordinates[1] > gridLength - 1) {
-            throw new IllegalArgumentException(view.invalidShotRange(gridLength - 1));
+        if (coordinates[0] > Ocean.GRID_SIZE - 1 || coordinates[1] > Ocean.GRID_SIZE - 1) {
+            throw new IllegalArgumentException(view.invalidShotRange(Ocean.GRID_SIZE - 1));
         }
 
         return coordinates;

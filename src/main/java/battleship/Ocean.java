@@ -210,15 +210,16 @@ class Ocean {
         for (columnCount = 0; columnCount < gameBoard.length; columnCount++) {
             result.append(blank).append(columnCount);
         }
+
         result.append(newLine);
 
         for (Ship[] row : gameBoard) {
 
             result.append(rowCount);
             columnCount = 0;
-            for (Ship column : row) {
+            for (Ship shipAtColumn : row) {
                 if (this.locationsFiredUpon[rowCount][columnCount]) {
-                    result.append(blank).append(column.toString());
+                    result.append(blank).append(shipAtColumn.toString());
                 }
                 else {
                     result.append(blank).append(".");
