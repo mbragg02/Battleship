@@ -37,13 +37,6 @@ class Ocean {
         this.gameBoard = new Ship[GRID_SIZE][GRID_SIZE];
         this.locationsFiredUpon = new boolean[GRID_SIZE][GRID_SIZE];
 
-        this.shotsFired = 0;
-        this.hitsRecorded = 0;
-        this.shipsSunk = 0;
-        totalShips = 0;
-
-        initializeShipArray();
-        buildShips();
     }
 
     /**
@@ -236,5 +229,19 @@ class Ocean {
             result.append(newLine);
         }
         return result.toString();
+    }
+
+    /**
+     *
+     *
+     */
+    public void initialise() {
+        this.shotsFired = 0;
+        this.hitsRecorded = 0;
+        this.shipsSunk = 0;
+        totalShips = 0;
+
+        initializeShipArray();
+        buildShips();
     }
 }

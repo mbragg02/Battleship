@@ -8,8 +8,17 @@ package battleship;
 public class BattleShipGame {
 
     public static void main(String[] args) {
-        BattleshipGameView view = new BattleshipGameViewImpl();
-        new BattleshipGameController(view).launch();
+        BattleShipGame bsg = new BattleShipGame();
+        bsg.launch();
     }
+
+    private void launch() {
+        BattleshipGameView view = new BattleshipGameViewImpl();
+        Ocean ocean = new Ocean();
+
+        BattleshipGameController controller = new BattleshipGameController(view, ocean);
+        controller.launch();
+    }
+
 
 }

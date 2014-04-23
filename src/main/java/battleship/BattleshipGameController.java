@@ -19,19 +19,23 @@ class BattleshipGameController {
     private final Scanner scanner;
     private int gridLength;
     private BattleshipGameView view;
+    private Ocean ocean;
 
-    public BattleshipGameController(BattleshipGameView battleshipGameView) {
+    public BattleshipGameController(BattleshipGameView battleshipGameView, Ocean ocean) {
         this.scanner = new Scanner(System.in);
         this.view = battleshipGameView;
+        this.ocean = ocean;
     }
 
     /**
      * Main battleship loop. Allows multiple games.
      */
     void launch() {
-        Ocean ocean;
+
         while (true) {
-            ocean = new Ocean();
+
+            ocean.initialise();
+
             ocean.placeAllShipsRandomly();
             gridLength = ocean.getShipArray().length;
 
@@ -41,6 +45,7 @@ class BattleshipGameController {
 
             view.printOcean(ocean);
             view.finalScore(ocean.getShotsFired());
+
 
 
             if (!playAgain()) {
