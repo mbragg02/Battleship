@@ -1,43 +1,23 @@
 package battleship;
 
-public class BattleshipGameView {
-    public void welcomeMessage() {
-        System.out.println("Welcome to Battleships\n");
-    }
+public interface BattleshipGameView {
+    void welcomeMessage();
 
-    public void finalScore(int shotsFired) {
-        System.out.println("Final score: " + shotsFired + " shots \n");
-    }
+    void finalScore(int shotsFired);
 
-    public void printOcean(Ocean ocean) {
-        System.out.println(ocean);
-    }
+    void printOcean(Ocean ocean);
 
-    public void exitMessage() {
-        System.out.println("Goodbye, thanks for playing!");
-    }
+    void exitMessage();
 
-    public void playAgain() {
-        System.out.print("Would you like to play again? y or n: ");
-    }
+    void playAgain();
 
-    public void invalidOption() {
-        System.out.println("Not a valid option. Please try again.");
-    }
+    void invalidOption();
 
-    public void enterShot() {
-        System.out.println("Enter a row and column number to shoot at (e.g 3,5): ");
-    }
+    void enterShot();
 
-    public String invalidShot() {
-        return "Invalid coordinates. Please try again";
-    }
+    String invalidShot();
 
-    public String invalidCharacters() {
-        return "Coordinates must be digits. Please try again";
-    }
+    String invalidCharacters();
 
-    public String invalidShotRange(int gridLength) {
-        return "Coordinates must be in the range 0 and " + gridLength + " Please try again";
-    }
+    String invalidShotRange(int gridLength);
 }
