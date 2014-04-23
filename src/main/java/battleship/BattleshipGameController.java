@@ -59,7 +59,7 @@ class BattleshipGameController {
     private void gameLoop(Ocean ocean) {
         int[] coordinates;
         while (!ocean.isGameOver()) {
-            System.out.println(ocean.toString());
+            view.printOcean(ocean);
             do {
                 try {
                     coordinates = getUserCoordinates();

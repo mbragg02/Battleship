@@ -1,43 +1,62 @@
 package battleship;
 
-public class BattleshipGameView {
-    public void welcomeMessage() {
-        System.out.println("Welcome to Battleships\n");
-    }
+/**
+ * For creating the system outputs to a user during the manipulation of a battleships game
+ */
+public interface BattleshipGameView {
+    /**
+     * displays a welcome message to the user
+     */
+    void welcomeMessage();
 
-    public void finalScore(int shotsFired) {
-        System.out.println("Final score: " + shotsFired + " shots \n");
-    }
+    /**
+     * displays the final score the user achieved
+     * @param shotsFired number of shots the user fired
+     */
+    void finalScore(int shotsFired);
 
-    public void printOcean(Ocean ocean) {
-        System.out.println(ocean);
-    }
+    /**
+     * for using the print ocean method utilised within the ocean class
+     * @param ocean to be printed
+     */
+    void printOcean(Ocean ocean);
 
-    public void exitMessage() {
-        System.out.println("Goodbye, thanks for playing!");
-    }
+    /**
+     * displays a message when closing the system
+     */
+    void exitMessage();
 
-    public void playAgain() {
-        System.out.print("Would you like to play again? y or n: ");
-    }
+    /**
+     * displays a message asking if a user would like to play again
+     */
+    void playAgain();
 
-    public void invalidOption() {
-        System.out.println("Not a valid option. Please try again.");
-    }
+    /**
+     * displayed when a user enters an invalid option when asked if they want to play again
+     */
+    void invalidOption();
 
-    public void enterShot() {
-        System.out.println("Enter a row and column number to shoot at (e.g 3,5): ");
-    }
+    /**
+     * requests a user to enter a shot in the formatted required for this version of the game
+     */
+    void enterShot();
 
-    public String invalidShot() {
-        return "Invalid coordinates. Please try again";
-    }
+    /**
+     * Error message for exceptions when user enters the shot format incorrectly
+     * @return invalidShot message
+     */
+    String invalidShot();
 
-    public String invalidCharacters() {
-        return "Coordinates must be digits. Please try again";
-    }
+    /**
+     * Error message for exceptions when user enters incompatible characters for a shot request
+     * @return invalidCharacter message
+     */
+    String invalidCharacters();
 
-    public String invalidShotRange(int gridLength) {
-        return "Coordinates must be in the range 0 and " + gridLength + " Please try again";
-    }
+    /**
+     * Error message for exceptions when user shoots outside the range of the grid
+     * @param gridLength length of current grid (usually minus 1, depending on implementation of grid)
+     * @return invalidShotRange message
+     */
+    String invalidShotRange(int gridLength);
 }
