@@ -85,11 +85,12 @@ class BattleshipGameController {
 
         int[] coordinates = new int[2];
 
-        System.out.println("Enter a row and column number to shoot at (e.g 3,5): ");
+        view.enterShot();
+
         String[] userInput = scanner.nextLine().split(",");
 
         if (userInput.length != 2) {
-            throw new IllegalArgumentException("Invalid coordinates. Please try again");
+            throw new IllegalArgumentException(view.invalidShot());
         }
 
         try {

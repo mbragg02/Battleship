@@ -24,4 +24,12 @@ public class BattleshipGameView {
     public void invalidOption() {
         System.out.println("Not a valid option. Please try again.");
     }
+
+    public void enterShot() {
+        System.out.println("Enter a row and column number to shoot at (e.g 3,5): ");
+    }
+
+    String invalidShot() {
+        return "Invalid coordinates. Please try again";
+    }
 }
