@@ -42,6 +42,20 @@ public class Ocean {
     }
 
     /**
+     * Set ocean game properties to zero.
+     * Initialise and build ships.
+     */
+    public void initialise() {
+        this.shotsFired = 0;
+        this.hitsRecorded = 0;
+        this.shipsSunk = 0;
+        totalShips = 0;
+
+        initializeShipArray();
+        buildShips();
+    }
+
+    /**
      * Fill game board with EmptySea() and fill locationsFiredUpon with false
      */
     private void initializeShipArray() {
@@ -212,15 +226,16 @@ public class Ocean {
         for (columnCount = 0; columnCount < gameBoard.length; columnCount++) {
             result.append(blank).append(columnCount);
         }
+
         result.append(newLine);
 
         for (Ship[] row : gameBoard) {
 
             result.append(rowCount);
             columnCount = 0;
-            for (Ship column : row) {
+            for (Ship shipAtColumn : row) {
                 if (this.locationsFiredUpon[rowCount][columnCount]) {
-                    result.append(blank).append(column.toString());
+                    result.append(blank).append(shipAtColumn.toString());
                 }
                 else {
                     result.append(blank).append(".");
@@ -233,17 +248,5 @@ public class Ocean {
         return result.toString();
     }
 
-    /**
-     *
-     *
-     */
-    public void initialise() {
-        this.shotsFired = 0;
-        this.hitsRecorded = 0;
-        this.shipsSunk = 0;
-        totalShips = 0;
 
-        initializeShipArray();
-        buildShips();
-    }
 }
