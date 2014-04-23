@@ -1,5 +1,8 @@
 package battleship;
 
+/**
+ * For creating the system outputs to a user during the manipulation of a battleships game
+ */
 public interface BattleshipGameView {
     /**
      * displays a welcome message to the user
