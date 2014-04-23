@@ -40,6 +40,20 @@ class Ocean {
     }
 
     /**
+     * Set ocean game properties to zero.
+     * Initialise and build ships.
+     */
+    public void initialise() {
+        this.shotsFired = 0;
+        this.hitsRecorded = 0;
+        this.shipsSunk = 0;
+        totalShips = 0;
+
+        initializeShipArray();
+        buildShips();
+    }
+
+    /**
      * Fill game board with EmptySea() and fill locationsFiredUpon with false
      */
     private void initializeShipArray() {
@@ -232,17 +246,5 @@ class Ocean {
         return result.toString();
     }
 
-    /**
-     *
-     *
-     */
-    public void initialise() {
-        this.shotsFired = 0;
-        this.hitsRecorded = 0;
-        this.shipsSunk = 0;
-        totalShips = 0;
 
-        initializeShipArray();
-        buildShips();
-    }
 }
