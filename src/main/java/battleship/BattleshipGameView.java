@@ -36,4 +36,8 @@ public class BattleshipGameView {
     public String invalidCharacters() {
         return "Coordinates must be digits. Please try again";
     }
+
+    public String invalidShotRange(int gridLength) {
+        return "Coordinates must be in the range 0 and " + gridLength + " Please try again";
+    }
 }

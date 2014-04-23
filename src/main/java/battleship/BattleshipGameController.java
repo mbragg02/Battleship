@@ -101,7 +101,7 @@ class BattleshipGameController {
         }
 
         if (coordinates[0] > gridLength - 1 || coordinates[1] > gridLength - 1) {
-            throw new IllegalArgumentException("Coordinates must be in the range 0 and " + (gridLength - 1) + " Please try again");
+            throw new IllegalArgumentException(view.invalidShotRange(gridLength - 1));
         }
 
         return coordinates;
