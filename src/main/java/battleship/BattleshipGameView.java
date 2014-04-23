@@ -12,4 +12,8 @@ public class BattleshipGameView {
     public void printOcean(Ocean ocean) {
         System.out.println(ocean);
     }
+
+    public void goodBye() {
+        System.out.println("Goodbye, thanks for playing!");
+    }
 }

@@ -48,7 +48,7 @@ class BattleshipGameController {
                 break;
             }
         }
-        System.out.println("Goodbye");
+        view.goodBye();
         scanner.close();
     }
 
