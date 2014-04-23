@@ -20,4 +20,8 @@ public class BattleshipGameView {
     public void playAgain() {
         System.out.print("Would you like to play again? y or n: ");
     }
+
+    public void invalidOption() {
+        System.out.println("Not a valid option. Please try again.");
+    }
 }

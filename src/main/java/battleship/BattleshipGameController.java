@@ -121,7 +121,7 @@ class BattleshipGameController {
                 playAgain = false;
                 break;
             } else {
-                System.out.println("Not a valid option. Please try again.");
+                view.invalidOption();
             }
         }
     }
