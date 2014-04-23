@@ -29,7 +29,11 @@ public class BattleshipGameView {
         System.out.println("Enter a row and column number to shoot at (e.g 3,5): ");
     }
 
-    String invalidShot() {
+    public String invalidShot() {
         return "Invalid coordinates. Please try again";
+    }
+
+    public String invalidCharacters() {
+        return "Coordinates must be digits. Please try again";
     }
 }

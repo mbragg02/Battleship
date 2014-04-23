@@ -97,7 +97,7 @@ class BattleshipGameController {
             coordinates[0] = Integer.parseInt(userInput[0].trim());
             coordinates[1] = Integer.parseInt(userInput[1].trim());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Coordinates must be digits. Please try again");
+            throw new IllegalArgumentException(view.invalidCharacters());
         }
 
         if (coordinates[0] > gridLength - 1 || coordinates[1] > gridLength - 1) {
