@@ -1,4 +1,7 @@
-package battleship;
+package battleship.controllers;
+
+import battleship.models.Ocean;
+import battleship.views.BattleshipGameView;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -14,7 +17,7 @@ import java.util.Scanner;
  *
  * @author Michael Bragg
  */
-class BattleshipGameController {
+public class BattleshipGameController {
 
     private final Scanner scanner;
     private BattleshipGameView view;
@@ -29,7 +32,7 @@ class BattleshipGameController {
     /**
      * Main battleship loop. Allows multiple games.
      */
-    void launch() {
+    public void launch() {
 
         view.welcomeMessage();
 

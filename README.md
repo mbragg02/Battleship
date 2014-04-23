@@ -8,4 +8,7 @@ Created by Michael Bragg, David North, Joseph Watkins, Oliver King (All full tim
 
 Notes on implementation:
 
+To start the program, run the class 'BattleshipGame'. This contains the main method.
+
+
 We have used the MCV pattern to decouple the user view entirely from the main program, this has also lead to the implementation of a controller for the main game.

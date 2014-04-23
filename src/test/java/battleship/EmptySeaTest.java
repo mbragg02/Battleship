@@ -1,5 +1,6 @@
 package battleship;
 
+import battleship.models.EmptySea;
 import org.junit.Before;
 import org.junit.Test;
 

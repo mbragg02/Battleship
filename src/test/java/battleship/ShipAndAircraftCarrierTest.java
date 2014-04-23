@@ -1,5 +1,9 @@
 package battleship;
 
+import battleship.models.AircraftCarrier;
+import battleship.models.Ocean;
+import battleship.models.PatrolBoat;
+import battleship.models.Ship;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

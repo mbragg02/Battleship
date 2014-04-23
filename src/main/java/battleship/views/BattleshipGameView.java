@@ -1,4 +1,6 @@
-package battleship;
+package battleship.views;
+
+import battleship.models.Ocean;
 
 /**
  * For creating the system outputs to a user during the manipulation of a battleships game

@@ -1,5 +1,6 @@
 package battleship;
 
+import battleship.models.PatrolBoat;
 import org.junit.Before;
 import org.junit.Test;
 

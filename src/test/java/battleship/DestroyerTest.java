@@ -1,6 +1,6 @@
 package battleship;
 
-import battleship.Destroyer;
+import battleship.models.Destroyer;
 import org.junit.Before;
 import org.junit.Test;
 
