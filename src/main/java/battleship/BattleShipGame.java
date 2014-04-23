@@ -2,6 +2,7 @@ package battleship;
 
 
 import battleship.controllers.BattleshipGameController;
+import battleship.controllers.BattleshipGameControllerImpl;
 import battleship.models.Ocean;
 import battleship.views.BattleshipGameView;
 import battleship.views.BattleshipGameViewImpl;
@@ -21,7 +22,7 @@ public class BattleShipGame {
         BattleshipGameView view = new BattleshipGameViewImpl();
         Ocean ocean = new Ocean();
 
-        BattleshipGameController controller = new BattleshipGameController(view, ocean);
+        BattleshipGameController controller = new BattleshipGameControllerImpl(view, ocean);
         controller.launch();
     }
 
