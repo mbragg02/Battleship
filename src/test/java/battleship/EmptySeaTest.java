@@ -42,13 +42,7 @@ public class EmptySeaTest {
 
 	@Test
 	public void testToStringEmpty() {
-		assertEquals(".", sea.toString());
-	}
-	@Test
-	public void testToStringHit() {
-		sea.hit[0] = true;
 		assertEquals("-", sea.toString());
-
 	}
 
 }

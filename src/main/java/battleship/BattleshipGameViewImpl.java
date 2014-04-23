@@ -60,4 +60,9 @@ public class BattleshipGameViewImpl implements BattleshipGameView {
     public String userNegative() {
         return "n";
     }
+
+    @Override
+    public void printErrorMessage(IllegalArgumentException e) {
+        System.out.println(e.getMessage());
+    }
 }

@@ -66,7 +66,8 @@ class BattleshipGameController {
                     ocean.shootAt(coordinates[0], coordinates[1]);
                     break;
                 } catch (IllegalArgumentException e) {
-                    System.out.println(e.getMessage());
+                    //TODO
+                    view.printErrorMessage(e);
                 } catch (NoSuchElementException e) {
                     break;
                 }
