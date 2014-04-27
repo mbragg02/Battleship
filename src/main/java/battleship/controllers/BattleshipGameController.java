@@ -8,7 +8,6 @@ package battleship.controllers;
  * - display the results.
  * - print final scores.
  * - ask the user if s/he wants to play again.
- *
  */
 public interface BattleshipGameController {
 

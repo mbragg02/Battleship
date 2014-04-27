@@ -11,21 +11,19 @@ import java.util.Random;
  */
 public class Ocean {
 
+    public static final int GRID_SIZE = 10;
+    private static final int AIRCRAFT_NO = 1;
+    private static final int BATTLE_NO = 2;
+    private static final int SUB_NO = 2;
+    private static final int DESTROY_NO = 2;
+    private static final int PATROL_NO = 4;
     private final Ship[][] gameBoard;
     private final boolean[][] locationsFiredUpon;
-
+    private final ShipFactory shipFactory;
     private List<Ship> ships;
     private int shotsFired;
     private int hitsRecorded;
     private int shipsSunk;
-
-    public static final int GRID_SIZE = 10;
-    private static final int AIRCRAFT_NO = 1;
-    private static final int BATTLE_NO   = 2;
-    private static final int SUB_NO 	 = 2;
-    private static final int DESTROY_NO  = 2;
-    private static final int PATROL_NO   = 4;
-    private final ShipFactory shipFactory;
     private int totalShips;
 
     /**
@@ -59,9 +57,9 @@ public class Ocean {
      */
     private void initializeShipArray() {
 
-        for (int row= 0; row <   this.gameBoard.length; row++) {
-            for (int col= 0; col < this.gameBoard[row].length; col++) {
-                this.gameBoard[row][col] = shipFactory.getEmptySea();
+        for (int row = 0; row < this.gameBoard.length; row++) {
+            for (int col = 0; col < this.gameBoard[row].length; col++) {
+                this.gameBoard[row][col] = shipFactory.getShip("emptySea");
                 this.locationsFiredUpon[row][col] = false;
             }
         }
@@ -75,23 +73,23 @@ public class Ocean {
         ships = new ArrayList<>();
 
         for (int i = 0; i < AIRCRAFT_NO; i++) {
-            ships.add(shipFactory.getAircraftCarrier());
+            ships.add(shipFactory.getShip("aircraftCarrier"));
             totalShips++;
         }
         for (int i = 0; i < BATTLE_NO; i++) {
-            ships.add(shipFactory.getBattleShip());
+            ships.add(shipFactory.getShip("battleship"));
             totalShips++;
         }
         for (int i = 0; i < SUB_NO; i++) {
-            ships.add(shipFactory.getSubmarine());
+            ships.add(shipFactory.getShip("submarine"));
             totalShips++;
         }
         for (int i = 0; i < DESTROY_NO; i++) {
-            ships.add(shipFactory.getDestroyer());
+            ships.add(shipFactory.getShip("destroyer"));
             totalShips++;
         }
         for (int i = 0; i < PATROL_NO; i++) {
-            ships.add(shipFactory.getPatrolBoat());
+            ships.add(shipFactory.getShip("patrolBoat"));
             totalShips++;
         }
     }
@@ -122,7 +120,8 @@ public class Ocean {
 
     /**
      * Check if a given location contains a ship
-     * @param row int
+     *
+     * @param row    int
      * @param column int
      * @return true if the given location contains a ship, false if it does not.
      */
@@ -135,7 +134,8 @@ public class Ocean {
      * In addition, this method updates the number of shots that have been fired, and the number of hits.
      * Note: If a location contains a real ship, shootAt should return true every time the user shoots at that same location.
      * Once a ship has been sunk, additional shots at its location should return false.
-     * @param row int
+     *
+     * @param row    int
      * @param column int
      * @return true if the given location contains a real ship, still afloat, (not an EmptySea), false if it does not.
      */
@@ -180,7 +180,7 @@ public class Ocean {
     }
 
     /**
-     * @return  the number of hits recorded (in this game). All hits are counted, not just the first time a given square is hit.
+     * @return the number of hits recorded (in this game). All hits are counted, not just the first time a given square is hit.
      */
     public int getHitCount() {
         return this.hitsRecorded;
@@ -235,8 +235,7 @@ public class Ocean {
             for (Ship shipAtColumn : row) {
                 if (this.locationsFiredUpon[rowCount][columnCount]) {
                     result.append(blank).append(shipAtColumn.toString());
-                }
-                else {
+                } else {
                     result.append(blank).append(".");
                 }
                 ++columnCount;

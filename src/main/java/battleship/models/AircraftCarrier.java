@@ -4,18 +4,18 @@ package battleship.models;
  * describes a ship with length 5.
  */
 public class AircraftCarrier extends Ship {
-		
-	public AircraftCarrier() {
-		this.length = 5;
-	}
 
-	@Override
+    public AircraftCarrier() {
+        this.length = 5;
+    }
+
+    @Override
     public int getLength() {
-		return this.length;
-	}
+        return this.length;
+    }
 
-	@Override
+    @Override
     public String getShipType() {
-		return "Aircraft Carrier";
-	}
+        return "Aircraft Carrier";
+    }
 }

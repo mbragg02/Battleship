@@ -4,7 +4,7 @@ import battleship.models.Ocean;
 
 public class BattleshipGameViewImpl implements BattleshipGameView {
 
-    private String boat = "\n" + "       _~" + "\n" +"    _~ )_)_~"+ "\n" + "    )_))_))_)" + "\n" + "    _!__!__!_" + "\n" + "    " + "\\" + "______t/" + "\n" + "  ~~~~~~~~~~~~~" + "\n";
+    private String boat = "\n" + "       _~" + "\n" + "    _~ )_)_~" + "\n" + "    )_))_))_)" + "\n" + "    _!__!__!_" + "\n" + "    " + "\\" + "______t/" + "\n" + "  ~~~~~~~~~~~~~" + "\n";
 
 
     @Override
