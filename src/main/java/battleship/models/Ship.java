@@ -158,9 +158,9 @@ public abstract class Ship {
 
 		Ship[][] grid = ocean.getShipArray();
 
-		int ship_length = this.getLength();
+		int shipLength = this.getLength();
 
-		for (int i = 0; i < ship_length; i++) {
+		for (int i = 0; i < shipLength; i++) {
 			if(horizontal) {
 				grid[row][column + i] = this;
 			} else {		
