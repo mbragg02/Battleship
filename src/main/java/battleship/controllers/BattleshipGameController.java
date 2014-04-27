@@ -9,7 +9,6 @@ package battleship.controllers;
  * - print final scores.
  * - ask the user if s/he wants to play again.
  *
- * @author Michael Bragg
  */
 public interface BattleshipGameController {
 

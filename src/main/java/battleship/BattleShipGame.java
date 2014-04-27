@@ -10,6 +10,8 @@ import battleship.views.BattleshipGameViewImpl;
 /**
  * OODP 2014. Assignment Three: Battleship Game.
  * Main method - game launcher.
+ *
+ * @author Michael Bargg, David North, Joseph Watkins & Olly King
  */
 public class BattleShipGame {
 

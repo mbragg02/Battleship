@@ -8,7 +8,6 @@ import java.util.Random;
 
 /**
  * This contains a 10x10 grid of Ships which represents the "ocean", and some methods to manipulate it.
- * @author mbragg
  */
 public class Ocean {
 

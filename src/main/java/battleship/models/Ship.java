@@ -2,7 +2,6 @@ package battleship.models;
 
 /**
  * This describes characteristics common to all the ships.
- * @author mbragg
  */
 public abstract class Ship {
 
